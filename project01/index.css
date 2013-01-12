@@ -1,3 +1,44 @@
 body {
 	background-color: #aaaaaa;
-} 
+}
+
+label {
+	width: 225px;
+	vertical-align: top;
+}
+
+.inline {
+	display: inline-block;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.halfwidth {
+	width: 50%;
+}
+
+.twothirds {
+	width: 66%;
+}
+
+.onethird {
+	width: 33%;
+}
+
+.clearboth {
+	clear: both;
+}
+
+#button-feel {
+	margin-left: 225px;
+}
+
+#footer {
+	text-align: center;
+}
