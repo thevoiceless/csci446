@@ -42,16 +42,41 @@ body {
 	margin: 0;
 	margin-bottom: -5px;
 	margin-top: -5px;
-	font-family: Helvetica, Arial, serif;
+	font-family: Helvetica, Arial, sans-serif;
 	letter-spacing: -2px
 }
 
 #page-subtitle {
 	margin: 0;
-	font-family: Helvetica, Arial, serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-size: 0.75em;
 	font-weight: normal;
 	color: #666666; 
+}
+
+#links-bar {
+	background: black;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+#links-bar a {
+	text-decoration: none;
+	font-weight: bold;
+	font-family: Helvetica, Arial, sans-serif;
+	padding: 0.7em;
+}
+
+#links-bar a:link {
+	color: white;
+}
+
+#links-bar a:visited {
+	color: #D0D0D0;
+}
+
+#links-bar a:hover {
+	color: gray;
 }
 
 #button-feel {
