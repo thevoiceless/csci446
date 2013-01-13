@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<script src="index.js"></script>
 		<link rel="stylesheet" type="text/css" href="index.css">
 		<title>Life Figure-Outer Application</title>
 	</head>
@@ -12,13 +13,13 @@
 				<h2 id="page-subtitle">Figuring out your life for you, so you don't have to...</h2>
 			</div>
 			<div id="links-bar">
-				<a class="nav" id="link-home" href="#">Home</a>
-				<a class="nav" id="link-interests" href="#">Interests</a>
-				<a class="nav" id="link-health" href="#">Health</a>
-				<a class="nav" id="link-academic" href="#">Academic</a>
-				<a class="nav" id="link-professional" href="#">Professional</a>
-				<a class="nav" id="link-fun" href="#">Fun</a>
-				<a class="nav" id="link-evil" href="#">Evil</a>
+				<a class="nav" id="link-home" title="Home" href="#">Home</a>
+				<a class="nav" id="link-interests" title="Interests" href="#">Interests</a>
+				<a class="nav" id="link-health" title="Health" title="Health" href="#">Health</a>
+				<a class="nav" id="link-academic" title="Academic" href="#">Academic</a>
+				<a class="nav" id="link-professional" title="Professional" href="#">Professional</a>
+				<a class="nav" id="link-fun" title="Fun" href="#">Fun</a>
+				<a class="nav" id="link-evil" title="Evil" href="#">Evil</a>
 			</div>
 			<div id="form-area">
 				<span id="form-input" class="left halfwidth">
@@ -40,7 +41,7 @@
 							</select>
 						</div>
 
-						<input id="button-feel" type="submit" value="Feel me!">
+						<input id="button-feel" type="submit" value="Feel me!" onclick="datFeel()">
 					</form> 
 				</span>
 				<span id="form-result" class="left halfwidth">
