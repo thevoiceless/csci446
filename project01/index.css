@@ -1,10 +1,33 @@
 body {
 	background-color: #aaaaaa;
+	margin: 0;
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+.form-entry {
+	margin-bottom: 1.3em;
 }
 
 .form-entry label {
 	width: 225px;
 	vertical-align: top;
+}
+
+.big-title {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 0;
+	margin-top: 0.1em;
+	margin-bottom: 0.6em;
+}
+
+.regular-title {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 0;
+	margin-top: 0.1em;
+	margin-left: 0.3em;
 }
 
 .inline {
@@ -72,15 +95,32 @@ body {
 }
 
 #links-bar a:visited {
-	color: #D0D0D0;
+	color: white;
 }
 
 #links-bar a:hover {
 	color: gray;
 }
 
+#form-area {
+	font-family: Helvetica, Arial, sans-serif;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
 #button-feel {
 	margin-left: 225px;
+	margin-bottom: 1.5em;
+}
+
+#form-result {
+	background: #f0f0ff;
+	margin-top: 0.5em;
+}
+
+#result-text {
+	margin-top: 0.5em;
+	margin-left: 0.3em;
 }
 
 #footer {
