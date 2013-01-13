@@ -92,6 +92,8 @@ body {
 
 #links-bar a:link {
 	color: white;
+	-webkit-transition: color .15s linear;
+	transition: color .15s linear;
 }
 
 #links-bar a:visited {
@@ -100,6 +102,8 @@ body {
 
 #links-bar a:hover {
 	color: gray;
+	-webkit-transition: color .15s linear;
+	transition: color .15s linear;
 }
 
 #form-area {
