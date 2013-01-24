@@ -1,6 +1,15 @@
 require 'rack'
 
 class AlbumOrganizer
+	def initialize
+		albums = Array.new
+		rank = 1
+		File.open("top_100_albums.txt", "r").each_line do |line|
+			albums << ["#{rank}"] + line.chomp.split(", ")
+			rank += 1
+		end
+	end
+
 	def call(env)
 		request = Rack::Request.new(env)
 		case request.path
