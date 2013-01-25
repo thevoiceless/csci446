@@ -20,6 +20,7 @@ class AlbumOrganizer
 		when "/" then [ 302, {'Location'=> '/form' }, [] ]
 		when "/form" then render_form(request)
 		when "/list" then render_list(request)
+		when "/list.css" then render_list_css
 		else render_404(env)
 		end
 	end
@@ -39,6 +40,12 @@ class AlbumOrganizer
 		response.write(generate_sorted_table(request))
 		response.write(closing_html)
 		#puts "body:", response.body
+		response.finish
+	end
+
+	def render_list_css
+		response = Rack::Response.new
+		File.open("list.css", "rb") { |css| response.write(css.read) }
 		response.finish
 	end
 
@@ -64,7 +71,7 @@ class AlbumOrganizer
 		table_content = "<table>"
 		@albums.each do |album|
 			if album[@@COL_RANK] == rank_to_highlight
-				table_content += "<tr id=\"highlight\" style=\"color: green\"><td>#{album[@@COL_RANK]}</td>"
+				table_content += "<tr id=\"highlight\"><td>#{album[@@COL_RANK]}</td>"
 			else
 				table_content += "<tr><td>#{album[@@COL_RANK]}</td>"
 			end
