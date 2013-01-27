@@ -119,4 +119,8 @@ class AlbumOrganizer
 	end
 end
 
+Signal.trap('INT') {
+	Rack::Handler::WEBrick.shutdown
+}
+
 Rack::Handler::WEBrick.run(AlbumOrganizer.new, {:Port => 8080})
