@@ -36,14 +36,7 @@ class AlbumOrganizer
 	# Display the form
 	def render_form(request)
 		response = Rack::Response.new
-		# Write partial HTML
-		File.open("form.html", "rb") { |form| response.write(form.read) }
-		# Generate HTML for rank dropdown
-		response.write(generate_rank_values)
-		# Add submit button and close form
-		response.write("<input type=\"submit\" value=\"Display List\"></form>")
-		# Finish HTML response
-		response.write(closing_html)
+		response.write(ERB.new(File.read("form.html.erb")).result(binding))
 		response.finish
 	end
 
