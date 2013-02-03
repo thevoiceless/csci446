@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Rolling Stone's Top 100 Albums of All Time</title>
+	<link rel="stylesheet" type="text/css" href="list.css">
+</head>
+<body>
+	<h1>Rolling Stone's Top 100 Albums of All Time</h1>
+	<p>Sorted by <%= request.GET()["order"] %></p>
+	<table>
+		<% @albums.each do |album| %>
+			<% if album[@@COL_RANK] == rank_to_highlight %>
+				<tr id="highlight">
+			<% else %>
+				<tr>
+			<% end %>
+				<td><%= album[@@COL_RANK] %></td>
+				<td><%= album[@@COL_NAME] %></td>
+				<td><%= album[@@COL_YEAR] %></td>
+			</tr>
+		<% end %>
+	</table>
+</body>
+</html>
