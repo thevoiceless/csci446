@@ -12,8 +12,17 @@ class AlbumOrganizer < Sinatra::Base
 	end
 
 	get "/form" do
-		"foo"
+		erb :form
 	end
+
+	post "/form" do
+	end
+
+	get "/list" do
+		@stylesheet = "<link rel=\"stylesheet\" type=\"text/css\" href=\"list.css\">"
+		erb :list
+	end
+
 end
 
 # Handle Control+C
