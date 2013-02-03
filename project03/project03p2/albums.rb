@@ -7,6 +7,10 @@ class AlbumOrganizer < Sinatra::Base
 	DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/albums.sqlite3.db")
 	set :port, 8080
 
+	def stylesheet_link(name)
+		"<link rel=\"stylesheet\" type=\"text/css\" href=\"#{name}\">"
+	end
+
 	get "/" do
 		redirect "/form"
 	end
@@ -15,19 +19,13 @@ class AlbumOrganizer < Sinatra::Base
 		erb :form
 	end
 
-	post "/form" do
-	end
-
-	get "/list" do
-		@stylesheet = "<link rel=\"stylesheet\" type=\"text/css\" href=\"list.css\">"
+	post "/list" do
+		@order_by = params['order']
+		@rank_to_highlight = params['rank'].to_i
+		@stylesheet = stylesheet_link("list.css")
+		@albums = Album.all(:order => [ @order_by.to_sym ])
 		erb :list
 	end
-
 end
 
-# Handle Control+C
-Signal.trap('INT') {
-	Rack::Handler::WEBrick.shutdown
-}
-
-Rack::Handler::WEBrick.run(AlbumOrganizer.new, {:Port => 8080})
+AlbumOrganizer.run!

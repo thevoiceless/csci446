@@ -1,0 +1,15 @@
+<h1>Rolling Stone's Top 100 Albums of All Time</h1>
+<p>Sorted by <%= @order_by %></p>
+<table>
+	<% @albums.each do |album| %>
+		<% if album.rank == @rank_to_highlight %>
+			<tr id="highlight">
+		<% else %>
+			<tr>
+		<% end %>
+			<td><%= album.rank %></td>
+			<td><%= album.title %></td>
+			<td><%= album.year %></td>
+		</tr>
+	<% end %>
+</table>
