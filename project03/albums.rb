@@ -1,21 +1,11 @@
 require 'rack'
+require 'sqlite3'
 
 class AlbumOrganizer
-	# Order of the table columns
-	@@COL_RANK = 0
-	@@COL_NAME = 1
-	@@COL_YEAR = 2
-
-	# Read from the albums file when the AlbumOrganizer is created
+	# Load the database when the AlbumOrganizer is created
 	def initialize
-		# Save the albums in an array
-		@albums = Array.new
-		# Albums are listed in order in the text file
-		rank = 1
-		File.open("top_100_albums.txt", "r").each_line do |line|
-			@albums << [rank] + line.chomp.split(", ")
-			rank += 1
-		end
+		@db = SQLite3::Database.open("albums.sqlite3.db")
+		@db.results_as_hash = true
 	end
 
 	def call(env)
@@ -42,13 +32,6 @@ class AlbumOrganizer
 
 	# Display the results list (table)
 	def render_list(request)
-		# Sort the albums based on the "order" param from query string
-		case request.GET()["order"]
-		when "rank" then @albums.sort_by! { |album| album[@@COL_RANK] }
-		when "name" then @albums.sort_by! { |album| album[@@COL_NAME] }
-		when "year" then @albums.sort_by! { |album| album[@@COL_YEAR] }
-		else @albums.sort_by! { |album| album[@@COL_RANK] }
-		end
 		# Get the rank to highlight from the query string
 		rank_to_highlight = request.GET()["rank"].to_i
 
