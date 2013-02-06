@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'data_mapper'
-require_relative 'Album'
+require_relative 'album'
 
 class AlbumOrganizer < Sinatra::Base
 
