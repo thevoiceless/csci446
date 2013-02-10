@@ -16,6 +16,7 @@ class AlbumOrganizer < Sinatra::Base
 	end
 
 	get "/form" do
+		@stylesheet = stylesheet_link("form.css")
 		erb :form
 	end
 
