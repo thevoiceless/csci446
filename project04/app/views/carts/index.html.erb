@@ -1,18 +1,18 @@
 <h1>Listing carts</h1>
 
 <table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
 
 <% @carts.each do |cart| %>
-  <tr>
-    <td><%= link_to 'Show', cart %></td>
-    <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-    <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+	<tr>
+		<td><%= link_to 'Show', cart %></td>
+		<td><%= link_to 'Edit', edit_cart_path(cart) %></td>
+		<td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
 <% end %>
 </table>
 
