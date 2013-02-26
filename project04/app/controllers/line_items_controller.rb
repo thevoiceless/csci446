@@ -42,6 +42,9 @@ class LineItemsController < ApplicationController
 	def create
 		@cart = current_cart()
 		product = Product.find(params[:product_id])
+		# The following line causes tests to fail with "ActiveModel::MassAssignmentSecurity::Error: Can't mass-assign protected attributes: product"
+		# @line_item = @cart.line_items.build(product: product)
+		# Instead, do:
 		@line_item = @cart.line_items.build
 		@line_item.product = product
 
