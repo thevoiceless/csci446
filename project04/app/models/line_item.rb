@@ -4,4 +4,8 @@ class LineItem < ActiveRecord::Base
 	# No line item can exist without the corresponding cart and product rows
 	belongs_to :product
 	belongs_to :cart
+
+	def total_price
+		product.price * quantity
+	end
 end
